@@ -27,13 +27,14 @@ document.getElementById('random-pc-number').innerHTML= 'Il numero casuale di PC:
 
 while (numUserArray.length <= 16 ){ //84
 
-   numUserScelta = parseInt(prompt('Inserire un numero tra 1 e 100'));
+   var numUserScelta = parseInt(prompt('Inserire un numero tra 1 e 100'));
+     
    
       if (!numUserArray.includes(numUserScelta)){
         numUserArray.push(numUserScelta)
       } 
-      else if (isNaN (numUserScelta)){
-        alert('Non hai inserito un numero')
+      else if (isNaN (numUserScelta)|| numUserScelta < 1 || numUserScelta > 100) {
+        alert('Dovevi inserire un numero da 1 a 100');
       }
       else  {
         alert ('Hai già inserito questo numero')
