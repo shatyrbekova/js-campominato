@@ -19,6 +19,7 @@ while (numPcArray.length < 16){
 }
 
 
+
 document.getElementById('random-pc-number').innerHTML= 'Il numero casuale di PC:' + '  ' + numPcArray;
 
 // Di seguito, creo un prompt per chiedere all'Utente di inserire un numero (compreso tra  1 e 100) per (100-16) volte, ciò 84 volte;
@@ -29,10 +30,17 @@ while (numUserArray.length <= 16 ){ //84
    numUserScelta = parseInt(prompt('Inserire un numero tra 1 e 100'));
    
       if (!numUserArray.includes(numUserScelta)){
-        numUserArray.push(numUserScelta);
-      }else {
-        alert ('Hai già inserito questo numero');
+        numUserArray.push(numUserScelta)
+      } 
+      else if (isNaN (numUserScelta)){
+        alert('Non hai inserito un numero')
       }
+      else  {
+        alert ('Hai già inserito questo numero')
+      } 
+        
+      
+
    
 }
 
