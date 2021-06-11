@@ -7,11 +7,20 @@ var numUserScelta;
 
 var flag = false;
 
+
+function getRandomNum (){
+
+  //con la formula seguente generiamo numero random per computer;
+  return Math.floor(Math.random()* (max- min +1)+min);
+}
+
 while (numPcArray.length < 16){
 
-  var numRandom = Math.floor(Math.random()*100) +1;
+  //il numero random per computer deve essere compreso tra 1 e 100;
 
+  var numRandom = getRandomNum(1, 100);
 
+//se il numero generato non c'è nell'array, si deve pushare;
   if (!numPcArray.includes[numRandom]){
       numPcArray.push(numRandom);
   }
@@ -34,19 +43,23 @@ while (numUserArray.length < possibility ){ //84
    
       if (!numUserArray.includes(numUserScelta)){
         
+        //se l'utente inserisse un numero simile a quello di PC, il gioco sarebbe finito ed utente avrebbe perso;
+
         if(numPcArray.includes(numUserScelta)){
           alert('Mina beccata');
           flag = true;
           break
         }else {
-       
+       // se l'utente inserisse un numero che numUserArray non contiene, allora a questo punto il numero generato verrebbe salvato nell'array in questione;
           numUserArray.push(numUserScelta)
           console.log(numUserArray);
         }  
       } 
-      else if (isNaN (numUserScelta)|| numUserScelta < 1 || numUserScelta > 100) {
+      // se l'utente inserisse non un numero, ma una parola ossia una lettera uscirebbe un alert;
+      else if (isNaN (numUserScelta)|| numUserScelta < 1 || numUserScelta > 100) { // PROBLEMA: Non funzione numUserScelta < 1 || numUserScelta > 100?
         alert('Dovevi inserire un numero da 1 a 100');
       }
+      //inoltre, se l'utente scegliesse un numero che aveva già inserito, di nuovo uscirebbe un alert;
       else  {
         alert ('Hai già inserito questo numero')
       } 
@@ -62,4 +75,5 @@ if (!flag){
   alert ('Hai perso');
 }
 
-alert ('Il tou punteggio è ' + numUserArray);
+alert ('Il tuo punteggio è ' + numUserArray);
+
