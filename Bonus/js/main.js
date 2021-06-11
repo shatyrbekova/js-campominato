@@ -70,7 +70,7 @@ while (numUserArray.length < max ){
 
    var numUserScelta = parseInt(prompt('Inserire un numero tra 1 e '+max));
      
-   if (isNaN (numUserScelta)|| numUserScelta < 1 || numUserScelta > 100) { // PROBLEMA: Non funziona numUserScelta < 1 || numUserScelta > 100?
+   if (isNaN (numUserScelta)|| numUserScelta < 1 || numUserScelta > 100) { 
     alert('Dovevi inserire un numero da 1 a 100');
   } else {
     if (!numUserArray.includes(numUserScelta)){ 
