@@ -2,23 +2,21 @@
 // Devo creare due array. In particolare,  per Pc e per Utente in modo che i numeri non vengono duplicati;
 var numPcArray = [];
 var numUserArray = [];
-var possibility= 84;
+var possibility= 100-16;
 var numUserScelta;
+var flag = false; //flag ci serve per capire chi ha perso oppure chi ha vinto;
 
-var flag = false;
+function getRandomNumber (min,max) {
 
-
-function getRandomNum (){
-
-  //con la formula seguente generiamo numero random per computer;
-  return Math.floor(Math.random()* (max- min +1)+min);
+  //con la formula seguente generiamo un numero random per computer;
+  return Math.floor(Math.random()* (max- min + 1)+ min);
 }
 
 while (numPcArray.length < 16){
 
-  //il numero random per computer deve essere compreso tra 1 e 100;
+  // //il numero random per computer deve essere compreso tra 1 e 100;
 
-  var numRandom = getRandomNum(1, 100);
+  var numRandom = getRandomNumber (1,100);
 
 //se il numero generato non c'è nell'array, si deve pushare;
   if (!numPcArray.includes[numRandom]){
@@ -27,7 +25,7 @@ while (numPcArray.length < 16){
 
 }
 
-console.log(numPcArray);
+console.log ('COMPUTER'+numPcArray);
 
 
 
@@ -48,7 +46,7 @@ while (numUserArray.length < possibility ){ //84
         if(numPcArray.includes(numUserScelta)){
           alert('Mina beccata');
           flag = true;
-          break
+          break;
         }else {
        // se l'utente inserisse un numero che numUserArray non contiene, allora a questo punto il numero generato verrebbe salvato nell'array in questione;
           numUserArray.push(numUserScelta)
@@ -56,7 +54,7 @@ while (numUserArray.length < possibility ){ //84
         }  
       } 
       // se l'utente inserisse non un numero, ma una parola ossia una lettera uscirebbe un alert;
-      else if (isNaN (numUserScelta)|| numUserScelta < 1 || numUserScelta > 100) { // PROBLEMA: Non funzione numUserScelta < 1 || numUserScelta > 100?
+      else if (isNaN (numUserScelta)|| numUserScelta < 1 || numUserScelta > 100) { // PROBLEMA: Non funziona numUserScelta < 1 || numUserScelta > 100?
         alert('Dovevi inserire un numero da 1 a 100');
       }
       //inoltre, se l'utente scegliesse un numero che aveva già inserito, di nuovo uscirebbe un alert;
@@ -65,7 +63,8 @@ while (numUserArray.length < possibility ){ //84
       } 
 }
 
-document.getElementById('random-pc-number').innerHTML+= '<br>' + 'Il numero dell\'utente:' + ' '+numUserArray;
+console.log('USER'+ numUserArray)
+document.getElementById('random-pc-number').innerHTML+= '<br>' + 'Il punteggio dell\'utente:' + ' '+numUserArray;
 
 // Come calcolare lo score del game?
 
@@ -75,5 +74,6 @@ if (!flag){
   alert ('Hai perso');
 }
 
-alert ('Il tuo punteggio è ' + numUserArray);
+
+
 
