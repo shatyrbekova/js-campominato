@@ -83,18 +83,10 @@ while (numUserArray.length < max ){
        } else  {
         alert ('Hai già inserito questo numero')
       } 
-        
-        //se l'utente inserisse un numero simile a quello di PC, il gioco sarebbe finito ed utente avrebbe perso;
 
        
   }
    
-    
-      
-      // se l'utente inserisse non un numero, ma una parola ossia una lettera uscirebbe un alert;
-     
-      //inoltre, se l'utente scegliesse un numero che aveva già inserito, di nuovo uscirebbe un alert;
-      
 }
 
 console.log('USER'+ numUserArray)
