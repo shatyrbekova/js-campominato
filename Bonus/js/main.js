@@ -5,7 +5,7 @@
 //con difficoltà 0 => tra 1 e 100 con difficoltà 1 => tra 1 e 80 con difficoltà 2 => tra 1 e 50;
 
 //Creo un prompt con parseInt per chiedere il range di numeri casuali;
-
+// Devo creare due array. In particolare,  per Pc e per Utente in modo che i numeri non vengono duplicati;
 var numPcArray = [];
 var numUserArray = [];
 var possibility= 100-16;
@@ -35,8 +35,6 @@ switch(rangeUser){
 
 }
 
-// Devo creare due array. In particolare,  per Pc e per Utente in modo che i numeri non vengono duplicati;
-
 
 function getRandomNumber (min,max) {
 
@@ -46,7 +44,7 @@ function getRandomNumber (min,max) {
 
 while (numPcArray.length < 16){
 
-  // //il numero random per computer deve essere compreso tra 1 e 100;
+  // //il numero random per computer deve essere compreso tra 1 e max;
 
   var numRandom = getRandomNumber (1,max);
 
@@ -68,10 +66,10 @@ document.getElementById('output').innerHTML+= 'Il numero casuale di PC:' + '  ' 
 
 while (numUserArray.length < max ){ 
 
-   var numUserScelta = parseInt(prompt('Inserire un numero tra 1 e '+max));
+   var numUserScelta = parseInt(prompt('Inserire un numero tra 1 e '+ max));
      
-   if (isNaN (numUserScelta)|| numUserScelta < 1 || numUserScelta > 100) { 
-    alert('Dovevi inserire un numero da 1 a 100');
+   if (isNaN (numUserScelta)|| numUserScelta < min || numUserScelta > max ){ 
+    alert('Dovevi inserire un numero da 1 a' + ' '+max);
   } else {
     if (!numUserArray.includes(numUserScelta)){ 
         numUserArray.push(numUserScelta)
